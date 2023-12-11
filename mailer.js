@@ -11,8 +11,8 @@ const currentDate = new Date();
 const formattedDate = currentDate.toLocaleDateString('vi-VN');
 
 const email = {
-    'hainam-nguyen@vn.apachefootwear.com' : 'S',
-    'hoa-le@vn.apachefootwear.com' : 'S'
+
+    // config mail outlook,gmail
 }
 
 app.use(express.json());
@@ -20,12 +20,12 @@ app.use(cors());
 
 //Config mail
 const emailConfig = {
-  host: "mail.apachefootwear.com",
+  host: "mail.domain.com",
   port: 25,
   secure: false,
   auth: {
-    user: "APACHE\\APH-System",
-    pass: "Aa123456",
+    user: "abc\\abc-mail",
+    pass: "0000000",
   },
   tls: {
     rejectUnauthorized: false,
@@ -34,9 +34,9 @@ const emailConfig = {
 
 //Config database
 const dbConfig = {
-  user: "mes00",
-  password: "dbmes00",
-  connectString: "10.30.3.51:1521/APHMES",
+  user: "00000",
+  password: "00000",
+  connectString: "0.0.0.0:1521/servicedb",
 };
 
 let clientOpts = {};
@@ -221,12 +221,12 @@ async function sendMail() {
   try {
     const transporter = nodemailer.createTransport(emailConfig);
 
-    const toMail = "hainam-nguyen@vn.apachefootwear.com";
+    const toMail = "abc@mail.com";
     const htmlBody = generateHtmlBody(item);
 
 
     const mailOptions = {
-        from: '"APH-System" <APH-System@vn.apachefootwear.com>',
+        from: '"APH-System" <name@mail.com>',
         to: plants,
         subject: 'Stitching Report',
         html: htmlBody,

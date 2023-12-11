@@ -50,6 +50,8 @@ if (process.platform === "win32") {
   clientOpts = { libDir: process.env.HOME + "/Downloads/instantclient_19_8" };
 }
 
+
+//connect db
 async function connectOracle() {
   try {
     oracledb.initOracleClient(clientOpts);
